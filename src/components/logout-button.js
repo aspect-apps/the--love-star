@@ -1,8 +1,9 @@
 import React from "react";
-import { AntDesign } from "@expo/vector-icons";
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { styles } from "./styles/logout-button-style";
-import { useNavigation } from "@react-navigation/native";
+import { StackActions, useNavigation } from "@react-navigation/native";
+import Auth from '@react-native-firebase/auth';
 
 export function LogoutButton() {
   const navigation = useNavigation();
@@ -15,6 +16,9 @@ export function LogoutButton() {
 
   function onLogout() {
     //Logout functionality here
-    navigation.pop();
+    Auth().signOut();
+    navigation.dispatch(
+      StackActions.replace('Splash')
+    );
   }
 }

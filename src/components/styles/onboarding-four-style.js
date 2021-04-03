@@ -61,6 +61,5 @@ export const styles = StyleSheet.create({
     fontSize: 26,
     textAlign: "center",
     letterSpacing: 0.0,
-    bottom: 59,
   },
 });

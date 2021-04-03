@@ -12,7 +12,6 @@ import styles from "./styles/login-page-style";
 import { PrimaryButton } from "../components/primary-button";
 import { GoogleSignin, statusCodes } from "@react-native-community/google-signin";
 import Auth from '@react-native-firebase/auth';
-import { LoginManager } from "react-native-fbsdk-next";
 
 const LoginPage = ({ navigation }) => {
   const backgroundImage = require("../img/test.jpg");
@@ -32,12 +31,6 @@ const LoginPage = ({ navigation }) => {
             onPress={onGoogleButtonPress}
             iconName="google"
             iconColor="rgb(66, 133, 244)"
-          />
-          <PrimaryButton
-            label="Continue with Facebook"
-            onPress={onFacebookButtonPress}
-            iconName="facebook-square"
-            iconColor="blue"
           />
         </View>
       </SafeAreaView>
@@ -65,24 +58,6 @@ const LoginPage = ({ navigation }) => {
           [{ text: "Close", style: "destructive" }]
         );
       }
-    }
-  }
-
-  async function onFacebookButtonPress() {
-    try {
-      const { type, token } = await LoginManager.logInWithPermissions(["public_profile"]);
-      
-      if (type === "success") {
-        const credential = Auth.FacebookAuthProvider.credential(token);
-        
-        // Sign in with credential from the Facebook.
-        await Auth().signInWithCredential(credential);
-        navigation.navigate("OnboardingOne");
-      } else {
-        // type === 'cancel'
-      }
-    } catch ({ message }) {
-      alert(`Facebook Login Error: ${message}`);
     }
   }
 };

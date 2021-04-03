@@ -90,6 +90,7 @@
 		13B07FAE1A68108700A75B9A /* TheLoveStar */ = {
 			isa = PBXGroup;
 			children = (
+				CEB739962618C4AA009A8C28 /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -121,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				CEB73A2A2618C864009A8C28 /* Fonts */,
-				CEB739962618C4AA009A8C28 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* TheLoveStar */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TheLoveStarTests */,

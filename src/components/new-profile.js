@@ -1,20 +1,21 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image, ActionSheetIOS } from "react-native";
 import { styles } from "./styles/new-profile-style";
-import { useNavigation } from "@react-navigation/native";
 import { Platform } from "react-native";
+import Auth from '@react-native-firebase/auth';
 import ImagePicker from 'react-native-image-crop-picker';
+import storage from '@react-native-firebase/storage';
 
 export function NewProfile() {
-  const navigation = useNavigation();
-  const [photo, setPhoto] = useState(null);
+  const [filePath, setFilePath] = useState(null);
+  const FileReference = storage().ref(`${Auth().currentUser.uid}-profile.png`);
 
   return (
     <View style={styles.backgroundProfile}>
       <View style={styles.profileContainer}>
         <Text style={styles.profileText}>Profile Name</Text>
         <TouchableOpacity onPress={onShowActionSheet}>
-          <Image source={photo} style={styles.profileIcon} />
+          <Image source={{ uri: filePath }} style={styles.profileIcon} />
         </TouchableOpacity>
       </View>
     </View>
@@ -59,16 +60,10 @@ export function NewProfile() {
     }
   }
 
-  function onUploadImage(result){
-      //  Upload image to Firebase
-      // firebase
-      //   .storage()
-      //   .ref("profile-pic")
-      //   .putFile(result.uri)
-      //   .then(() => {
-      //     console.log(`Has been successfully uploaded.`);
-      //   })
-      //   .catch((e) => console.log('uploading image error => ', e));
-      setPhoto(result);
+  async function onUploadImage(result) {
+    const pathToFile = result.path;
+    await FileReference.putFile(pathToFile);
+    console.log({ result });
+    setFilePath(result.path);
   }
 }

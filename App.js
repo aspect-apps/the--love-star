@@ -1,9 +1,8 @@
-import "./src/index";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginPage from "./src/pages/login-page";
-import * as firebase from 'firebase';
+import Auth from '@react-native-firebase/auth';
 import SplashPage from "./src/pages/splash-page";
 import ProfilePage from "./src/pages/profile-page";
 import OnboardingOnePage from "./src/pages/onboarding-one-page";
@@ -14,14 +13,13 @@ import NewProfilePage from "./src/pages/new-profile-page";
 import UploadPageTwo from "./src/pages/upload-two-page";
 import UploadPage from "./src/pages/upload-page";
 import HomePage from "./src/pages/home-page";
-import CameraUploadPage from "./src/pages/camera-upload-page";
 import SavePage from "./src/pages/save-page";
 
 const Stack = createStackNavigator();
 
 export default function App() {
-  const user = firebase.auth().currentUser;
-  const isLoggedIn = user !== null
+  const user = Auth().currentUser;
+  const isLoggedIn = user !== null;
 
   return (
     <NavigationContainer>
@@ -68,7 +66,6 @@ export default function App() {
           component={NewProfilePage}
           options={{ headerLeft: null }}
         />
-        <Stack.Screen name="CameraUpload" component={CameraUploadPage} />
         <Stack.Screen name="Upload" component={UploadPage} />
         <Stack.Screen name="UploadTwo" component={UploadPageTwo} />
         <Stack.Screen name="Save" component={SavePage} />

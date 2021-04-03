@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Constants from "expo-constants";
 import { View, Text, TouchableOpacity, Platform } from "react-native";
 import { styles } from "./styles/onboarding-three-style.js";
 import Ionicons from 'react-native-vector-icons/Ionicons';

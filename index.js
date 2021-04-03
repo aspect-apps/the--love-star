@@ -9,7 +9,7 @@ import { GoogleSignin } from "@react-native-community/google-signin";
 
 GoogleSignin.configure({
     scopes: ["https://www.googleapis.com/auth/userinfo.profile"],
-    webClientId: "com.googleusercontent.apps.659842937776-sgoeqb6ipq5krbj17r1tja3bj7466u4d",
+    webClientId: "156884841393-8p0rjlkv0137jm159oq2ecr34d296dki.apps.googleusercontent.com",
 });
 
 AppRegistry.registerComponent(appName, () => App);
