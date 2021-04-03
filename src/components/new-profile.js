@@ -63,7 +63,6 @@ export function NewProfile() {
   async function onUploadImage(result) {
     const pathToFile = result.path;
     await FileReference.putFile(pathToFile);
-    console.log({ result });
     setFilePath(result.path);
   }
 }
