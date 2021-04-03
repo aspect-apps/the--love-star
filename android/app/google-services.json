@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "156884841393",
+    "project_id": "love-star-4ebca",
+    "storage_bucket": "love-star-4ebca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156884841393:android:cdd518f98128242c3ac390",
+        "android_client_info": {
+          "package_name": "com.cedric.lovestar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156884841393-ju6mf5dbo7ppb2u4qo3ji85sst361591.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLPSQws6nOOb-l-RvBKBH0yJwhuhNQAS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156884841393-ju6mf5dbo7ppb2u4qo3ji85sst361591.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "156884841393-8p0rjlkv0137jm159oq2ecr34d296dki.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cedric.lovestar"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
