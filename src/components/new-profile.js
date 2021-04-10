@@ -1,12 +1,19 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Image, ActionSheetIOS } from "react-native";
-import { styles } from "./styles/new-profile-style";
-import { Platform } from "react-native";
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  ActionSheetIOS,
+} from 'react-native';
+import {styles} from './styles/new-profile-style';
+import {Platform} from 'react-native';
 import Auth from '@react-native-firebase/auth';
 import ImagePicker from 'react-native-image-crop-picker';
 import storage from '@react-native-firebase/storage';
 
 export function NewProfile() {
+  _keyExtractor = (item, index) => item.id.toString();
   const [filePath, setFilePath] = useState(null);
   const FileReference = storage().ref(`${Auth().currentUser.uid}-profile.png`);
 
@@ -15,14 +22,14 @@ export function NewProfile() {
       <View style={styles.profileContainer}>
         <Text style={styles.profileText}>Profile Name</Text>
         <TouchableOpacity onPress={onShowActionSheet}>
-          <Image source={{ uri: filePath }} style={styles.profileIcon} />
+          <Image source={{uri: filePath}} style={styles.profileIcon} />
         </TouchableOpacity>
       </View>
     </View>
   );
 
-  function onShowActionSheet(){
-    if(Platform.OS === "ios") {
+  function onShowActionSheet() {
+    if (Platform.OS === 'ios') {
       ActionSheetIOS.showActionSheetWithOptions(
         {
           options: ['Cancel', 'Open Library', 'Take Photo'],
@@ -34,9 +41,9 @@ export function NewProfile() {
           } else if (buttonIndex === 2) {
             takePicture();
           }
-        }
+        },
       );
-    }   
+    }
   }
 
   async function takePicture() {
@@ -48,7 +55,7 @@ export function NewProfile() {
     onUploadImage(result);
   }
 
-  async function pickImage(){
+  async function pickImage() {
     const result = await ImagePicker.openPicker({
       width: 300,
       height: 400,

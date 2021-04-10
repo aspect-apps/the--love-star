@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { Profile } from "../components/profile";
-import { LogoutButton } from "../components/logout-button";
+import React, {useEffect} from 'react';
+import {Profile} from '../components/profile';
+import {LogoutButton} from '../components/logout-button';
 
-const ProfilePage = ({ navigation }) => {
+const ProfilePage = ({navigation}) => {
   useEffect(() => {
     navigation.setOptions({
-      title: "Profile",
+      title: 'Profile',
       headerRight: () => <LogoutButton />,
     });
   }, []);

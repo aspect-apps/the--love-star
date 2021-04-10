@@ -1,6 +1,34 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  card: {
+    backgroundColor: 'rgb(245, 221, 221)',
+    marginBottom: 25,
+  },
+  cardImage: {
+    width: '100%',
+    height: 300,
+  },
+  cardHeader: {
+    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  cardTitle: {
+    color: 'black',
+  },
+  cardAvatar: {
+    marginRight: 16,
+  },
+  cardContent: {
+    padding: 10,
+    borderWidth: 0.25,
+    borderColor: 'white',
+  },
   homeContainer: {
     alignContent: 'center',
     flex: 1,
@@ -20,9 +48,6 @@ export const styles = StyleSheet.create({
     borderRadius: 64 / 2,
     backgroundColor: 'white',
     marginHorizontal: 19,
-  },
-  container: {
-    flex: 1,
   },
   containerGallery: {
     flex: 1,

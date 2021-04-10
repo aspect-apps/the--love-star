@@ -1,9 +1,9 @@
-import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import React from 'react';
+import {Text, TouchableOpacity} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { styles } from "./styles/primary-button-style.js";
+import {styles} from './styles/primary-button-style.js';
 
-export function PrimaryButton({ onPress, label, iconName, iconColor }) {
+export function PrimaryButton({onPress, label, iconName, iconColor}) {
   return (
     <>
       <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>

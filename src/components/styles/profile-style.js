@@ -1,21 +1,21 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   backgroundProfile: {
     flex: 1,
-    width: "100%",
-    backgroundColor: "rgb(245, 221, 221)",
+    width: '100%',
+    backgroundColor: 'rgb(245, 221, 221)',
     paddingHorizontal: 11,
   },
   headerContainer: {
-    backgroundColor: "rgb(221, 244, 244)",
+    backgroundColor: 'rgb(221, 244, 244)',
     width: 420,
     height: 113,
     paddingVertical: 25,
     paddingHorizontal: 16,
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
     right: 14,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 4,
@@ -27,8 +27,8 @@ export const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 24,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: 'bold',
+    textAlign: 'center',
     letterSpacing: 0.0,
     width: 297,
     height: 66,
@@ -37,38 +37,38 @@ export const styles = StyleSheet.create({
     marginRight: 45,
   },
   chatLinkText: {
-    color: "blue",
-    textAlign: "left",
+    color: 'blue',
+    textAlign: 'left',
     letterSpacing: 0.0,
     fontSize: 18,
   },
   followerTextContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginLeft: 12,
     marginTop: 12,
   },
   followersText: {
-    color: "rgb(71, 71, 71)",
+    color: 'rgb(71, 71, 71)',
     letterSpacing: 0.0,
     fontSize: 14,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   profileContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   profileText: {
-    color: "rgb(36, 52, 67)",
+    color: 'rgb(36, 52, 67)',
     letterSpacing: 0.0,
     fontSize: 16,
-    textAlign: "center",
-    fontWeight: "bold",
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   profileIcon: {
     width: 200,
     height: 200,
     borderRadius: 475,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     marginVertical: 32,
   },
   container: {
@@ -78,7 +78,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   containerImage: {
-    width: "32%",
+    width: '32%',
     marginHorizontal: 4,
     marginVertical: 4,
   },

@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   backgroundSplash: {
     flex: null,
-    width: "100%",
-    backgroundColor: "rgb(221, 244, 244)",
+    width: '100%',
+    backgroundColor: 'rgb(221, 244, 244)',
   },
   elephantImage: {
     paddingVertical: 28,
@@ -15,14 +15,14 @@ export const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 80,
-    fontFamily: "Baskerville-Italic",
-    fontWeight: "bold",
-    color: "silver",
-    textAlign: "center",
+    fontFamily: 'Baskerville-Italic',
+    fontWeight: 'bold',
+    color: 'silver',
+    textAlign: 'center',
     letterSpacing: 0.0,
     paddingVertical: 65,
     bottom: 30,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 4,
@@ -34,39 +34,39 @@ export const styles = StyleSheet.create({
   },
   subtitleText: {
     fontSize: 18,
-    textAlign: "center",
+    textAlign: 'center',
     letterSpacing: 0.0,
     marginBottom: 22,
   },
   starIcon: {
-    color: "rgb(245, 221, 221)",
+    color: 'rgb(245, 221, 221)',
     height: 195,
     width: 170,
     fontSize: 170,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   heartIcon: {
-    color: "black",
+    color: 'black',
     height: 85,
     width: 100,
     fontSize: 90,
-    alignSelf: "center",
-    position: "absolute",
+    alignSelf: 'center',
+    position: 'absolute',
     top: 50,
     left: 160,
   },
   buttonContainer: {
-    backgroundColor: "rgb(245, 221, 221)",
+    backgroundColor: 'rgb(245, 221, 221)',
     borderRadius: 25,
     paddingVertical: 25,
     paddingHorizontal: 36,
     marginVertical: 82,
     marginHorizontal: 36,
-    alignItems: "center",
+    alignItems: 'center',
   },
   buttonContainerText: {
     fontSize: 20,
-    textAlign: "center",
+    textAlign: 'center',
     letterSpacing: 0.0,
   },
 });

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { OnboardingThree } from "../components/onboarding-three";
+import React, {useEffect} from 'react';
+import {OnboardingThree} from '../components/onboarding-three';
 
-const OnboardingThreePage = ({ navigation }) => {
+const OnboardingThreePage = ({navigation}) => {
   useEffect(() => {
     navigation.setOptions({
-      title: "Registration",
+      title: 'Registration',
     });
   }, []);
   return <OnboardingThree />;

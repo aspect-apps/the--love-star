@@ -1,9 +1,9 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import { styles } from "./styles/onboarding-four-style.js";
+import React from 'react';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {styles} from './styles/onboarding-four-style.js';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
+import {ScrollView} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 
 export function OnboardingFour() {
   const navigation = useNavigation();
@@ -16,10 +16,10 @@ export function OnboardingFour() {
           Congratulations! Click next to see your profile and upload a picture!
         </Text>
         <Image
-          source={require("../img/elephant.png")}
+          source={require('../img/elephant.png')}
           style={styles.chatImage}
         />
-        <TouchableOpacity onPress={() => navigation.navigate("NewProfile")}>
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <View>
             <Text style={styles.bottomText}>Next</Text>
           </View>

@@ -1,31 +1,31 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    justifyContent: "flex-start",
+    justifyContent: 'flex-start',
     margin: 24,
   },
   backgroundImage: {
     flex: 1,
-    width: "100%",
-    justifyContent: "center",
+    width: '100%',
+    justifyContent: 'center',
   },
   elephantImage: {
     paddingVertical: 15,
     marginTop: 2,
   },
   titleContainer: {
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   title: {
-    textAlign: "center",
-    color: "silver",
+    textAlign: 'center',
+    color: 'silver',
     fontSize: 75,
-    fontWeight: "600",
+    fontWeight: '600',
     marginBottom: 20,
-    fontFamily: "Baskerville-Italic",
-    shadowColor: "#000",
+    fontFamily: 'Baskerville-Italic',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 4,

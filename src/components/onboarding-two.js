@@ -1,11 +1,11 @@
-import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import { styles } from "./styles/onboarding-two-style.js";
+import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
+import {styles} from './styles/onboarding-two-style.js';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { useNavigation } from "@react-navigation/native";
-import { Pins } from "react-native-pins";
-import { ScrollView } from "react-native-gesture-handler";
+import {useNavigation} from '@react-navigation/native';
+import {Pins} from 'react-native-pins';
+import {ScrollView} from 'react-native-gesture-handler';
 
 export function OnboardingTwo() {
   const navigation = useNavigation();
@@ -69,8 +69,7 @@ export function OnboardingTwo() {
         </Text>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate("OnboardingThree")}
-        >
+          onPress={() => navigation.navigate('OnboardingThree')}>
           <View style={styles.buttonContainer}>
             <Text style={styles.buttonContainerText}>Continue</Text>
           </View>

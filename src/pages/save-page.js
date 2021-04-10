@@ -1,5 +1,5 @@
-import React from "react";
-import { Save } from "../components/save";
+import React from 'react';
+import {Save} from '../components/save';
 
 const SavePage = () => {
   return <Save />;

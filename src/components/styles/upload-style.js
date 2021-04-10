@@ -1,21 +1,21 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   backgroundUpload: {
     flex: 1,
-    width: "100%",
-    backgroundColor: "rgb(245, 221, 221)",
+    width: '100%',
+    backgroundColor: 'rgb(245, 221, 221)',
     paddingHorizontal: 11,
   },
   headerContainer: {
-    backgroundColor: "rgb(221, 244, 244)",
+    backgroundColor: 'rgb(221, 244, 244)',
     width: 420,
     height: 113,
     paddingVertical: 25,
     paddingHorizontal: 16,
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
     right: 14,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 4,
@@ -27,8 +27,8 @@ export const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 24,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: 'bold',
+    textAlign: 'center',
     letterSpacing: 0.0,
     width: 297,
     height: 66,
@@ -38,10 +38,10 @@ export const styles = StyleSheet.create({
     bottom: 12,
   },
   uploadContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   dividerLine: {
-    backgroundColor: "black",
+    backgroundColor: 'black',
     height: 1,
     width: 400,
     top: 27,
@@ -49,19 +49,19 @@ export const styles = StyleSheet.create({
   uploadMainText: {
     fontSize: 24,
     letterSpacing: 0.0,
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
     top: 81,
   },
   uploadBoxContainer: {
     height: 180,
     width: 333,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     top: 123,
   },
   uploadBoxText: {
     fontSize: 24,
     letterSpacing: 0.0,
-    textAlign: "center",
+    textAlign: 'center',
     top: 72,
   },
   uploadImage: {
@@ -71,9 +71,9 @@ export const styles = StyleSheet.create({
   },
   bottomText: {
     fontSize: 24,
-    fontWeight: "bold",
-    color: "blue",
-    textAlign: "center",
+    fontWeight: 'bold',
+    color: 'blue',
+    textAlign: 'center',
     letterSpacing: 0.0,
     top: 220,
   },

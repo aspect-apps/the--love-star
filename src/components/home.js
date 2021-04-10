@@ -1,21 +1,21 @@
-import React from "react";
-import { View, Text, Image, FlatList } from "react-native";
-import { styles } from "./styles/home-style.js";
+import React from 'react';
+import {View, Text, Image, FlatList} from 'react-native';
+import {styles} from './styles/home-style.js';
 
 const imageData = [
   {
-    image: "https://picsum.photos/200",
+    image: 'https://picsum.photos/200',
   },
   {
-    image: "https://picsum.photos/200",
+    image: 'https://picsum.photos/200',
   },
   {
-    image: "https://picsum.photos/200",
+    image: 'https://picsum.photos/200',
   },
   {
-    image: "https://picsum.photos/200",
+    image: 'https://picsum.photos/200',
   },
-]; 
+];
 
 // export function Home() {
 //   return (
@@ -50,9 +50,9 @@ export function Home() {
             </View>
           </>
         }
-        renderItem={({ item }) => (
+        renderItem={({item}) => (
           <View style={styles.containerImage}>
-            <Image style={styles.image} source={{ uri: item.image }} />
+            <Image style={styles.image} source={{uri: item.image}} />
           </View>
         )}
       />

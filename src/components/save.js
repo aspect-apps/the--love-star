@@ -1,14 +1,9 @@
-import React from 'react'
-import { View } from 'react-native';
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
+import {View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 
-export function Save() {
-    const navigation = useNavigation();
-    return (
-      <View>
-
-      </View>
-    );
-  }
-  
+  const Child = ({ navigation, route }) => {
+ 
+console.log(route)
+}

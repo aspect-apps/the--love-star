@@ -1,13 +1,13 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   backgroundOnboarding: {
     flex: 1,
-    width: "100%",
-    backgroundColor: "rgb(245, 221, 221)",
+    width: '100%',
+    backgroundColor: 'rgb(245, 221, 221)',
   },
   onboardingContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   elephantImage: {
     paddingVertical: 28,
@@ -19,28 +19,28 @@ export const styles = StyleSheet.create({
     fontSize: 48,
     letterSpacing: 0.0,
     top: 18,
-    textAlign: "center",
+    textAlign: 'center',
     paddingHorizontal: 52,
   },
   subText: {
     fontSize: 20,
     letterSpacing: 0.0,
     top: 69,
-    textAlign: "center",
+    textAlign: 'center',
     paddingHorizontal: 50,
   },
   buttonContainer: {
-    backgroundColor: "rgb(221, 244, 244)",
+    backgroundColor: 'rgb(221, 244, 244)',
     borderRadius: 25,
     paddingVertical: 25,
     paddingHorizontal: 126,
     marginVertical: 170,
     marginHorizontal: 36,
-    alignItems: "center",
+    alignItems: 'center',
   },
   buttonContainerText: {
     fontSize: 20,
-    textAlign: "center",
+    textAlign: 'center',
     letterSpacing: 0.0,
   },
 });

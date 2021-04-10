@@ -1,20 +1,20 @@
-import React from "react";
-import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
-import { styles } from "./styles/follow-profile-style";
+import React from 'react';
+import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
+import {styles} from './styles/follow-profile-style';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 const imageData = [
   {
-    image: "https://picsum.photos/200",
+    image: 'https://picsum.photos/200',
   },
   {
-    image: "https://picsum.photos/200",
+    image: 'https://picsum.photos/200',
   },
   {
-    image: "https://picsum.photos/200",
+    image: 'https://picsum.photos/200',
   },
   {
-    image: "https://picsum.photos/200",
+    image: 'https://picsum.photos/200',
   },
 ];
 
@@ -42,9 +42,9 @@ export function FollowProfile() {
               </View>
             </>
           }
-          renderItem={({ item }) => (
+          renderItem={({item}) => (
             <View style={styles.containerImage}>
-              <Image style={styles.image} source={{ uri: item.image }} />
+              <Image style={styles.image} source={{uri: item.image}} />
             </View>
           )}
         />

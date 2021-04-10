@@ -1,18 +1,18 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   backgroundOnboarding: {
     flex: 1,
-    width: "100%",
-    backgroundColor: "rgb(245, 221, 221)",
+    width: '100%',
+    backgroundColor: 'rgb(245, 221, 221)',
   },
   headerContainer: {
-    backgroundColor: "rgb(221, 244, 244)",
+    backgroundColor: 'rgb(221, 244, 244)',
     width: 420,
     height: 113,
     paddingVertical: 25,
     paddingHorizontal: 4,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 4,
@@ -24,8 +24,8 @@ export const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 24,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: 'bold',
+    textAlign: 'center',
     letterSpacing: 0.0,
     width: 297,
     height: 66,
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
     bottom: 7,
   },
   onboardingContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   iconContainer: {
     marginRight: 320.1,
@@ -45,14 +45,14 @@ export const styles = StyleSheet.create({
     fontSize: 48,
     letterSpacing: 0.0,
     top: 18,
-    textAlign: "center",
+    textAlign: 'center',
   },
   subText: {
     fontSize: 20,
     letterSpacing: 0.0,
     bottom: 2,
-    alignSelf: "flex-start",
-    fontWeight: "bold",
+    alignSelf: 'flex-start',
+    fontWeight: 'bold',
     left: 105,
   },
   subSubText: {
@@ -63,23 +63,23 @@ export const styles = StyleSheet.create({
     left: 23,
   },
   dividerLine: {
-    backgroundColor: "black",
+    backgroundColor: 'black',
     height: 1,
     width: 322,
     top: 27,
   },
   buttonContainer: {
-    backgroundColor: "rgb(221, 244, 244)",
+    backgroundColor: 'rgb(221, 244, 244)',
     borderRadius: 25,
     paddingVertical: 25,
     paddingHorizontal: 126,
     marginVertical: 30,
     marginHorizontal: 36,
-    alignItems: "center",
+    alignItems: 'center',
   },
   buttonContainerText: {
     fontSize: 20,
-    textAlign: "center",
+    textAlign: 'center',
     letterSpacing: 0.0,
   },
 });
