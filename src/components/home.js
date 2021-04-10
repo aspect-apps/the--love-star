@@ -15,7 +15,7 @@ const imageData = [
   {
     image: "https://picsum.photos/200",
   },
-];
+]; 
 
 // export function Home() {
 //   return (
