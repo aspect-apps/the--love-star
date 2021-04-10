@@ -70,6 +70,14 @@ export function NewProfile() {
   async function onUploadImage(result) {
     const pathToFile = result.path;
     await FileReference.putFile(pathToFile);
+
+    // const url = await storage().ref( file name here ).getDownloadURL();
+
+    // const result = await Firestore().collection('users').add({
+    //   userId: Auth().currentUser.uid,
+    //   avatarUrl: url,
+    // });
+
     setFilePath(result.path);
   }
 }

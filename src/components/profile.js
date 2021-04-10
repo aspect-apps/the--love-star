@@ -37,7 +37,7 @@ export function Profile() {
 
               <View style={styles.profileContainer}>
                 <Text style={styles.profileText}>Profile Name</Text>
-                <TouchableOpacity onPress ={() => navigation.navigate('Feed')}>
+                <TouchableOpacity onPress ={() => navigation.navigate('DashboardPage')}>
                 <View style={styles.profileIcon}></View>
                 </TouchableOpacity>
               </View>

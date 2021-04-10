@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
-import {Feed} from '../components/feed';
 import {LogoutButton} from '../components/logout-button';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {Profile} from '../components/profile';
 import {Upload} from '../components/upload';
+import { MainFeedPage } from '../components/main-feed-page';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const FeedPage = ({navigation}) => {
+export const DashboardPage = ({navigation}) => {
   useEffect(() => {
     navigation.setOptions({
       title: 'Feed',
@@ -22,7 +22,7 @@ const FeedPage = ({navigation}) => {
       barStyle={{backgroundColor: 'rgb(221, 244, 244)'}}>
       <Tab.Screen
         name="Feed"
-        component={Feed}
+        component={MainFeedPage}
         options={{
           tabBarLabel: 'Add',
           tabBarIcon: ({color}) => (
@@ -73,5 +73,3 @@ const FeedPage = ({navigation}) => {
     </Tab.Navigator>
   );
 };
-
-export default FeedPage;

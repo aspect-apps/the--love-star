@@ -34,6 +34,5 @@ export const styles = StyleSheet.create({
   uploadImage: {
     height: 157,
     width: 190,
-    top: 422,
   },
 });

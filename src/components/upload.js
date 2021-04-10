@@ -8,16 +8,13 @@ import {
 } from 'react-native';
 import {styles} from './styles/upload-style.js';
 import {Platform} from 'react-native';
-import Auth from '@react-native-firebase/auth';
 import ImagePicker from 'react-native-image-crop-picker';
-import storage from '@react-native-firebase/storage';
+
 import {useNavigation} from '@react-navigation/native';
 
 export function Upload() {
-  _keyExtractor = (item, index) => item.id.toString();
-  const [filePath, setFilePath] = useState(null);
-  const FileReference = storage().ref(`${Auth().currentUser.uid}-profile.png`);
   const navigation = useNavigation();
+
   return (
     <View style={styles.backgroundUpload}>
       <View style={styles.uploadContainer}>
@@ -60,7 +57,10 @@ export function Upload() {
       height: 400,
       cropping: true,
     });
-    onUploadImage(result);
+
+    if (!result.cancelled) {
+      navigation.navigate("UploadTwo", { image: result.path })
+    }
   }
 
   async function pickImage() {
@@ -69,16 +69,9 @@ export function Upload() {
       height: 400,
       cropping: true,
     });
-    navigation.navigate("UploadTwo", { image: result.path })
-
+    
     if (!result.cancelled) {
-      onUploadImage(result);
+      navigation.navigate("UploadTwo", { image: result.path })
     }
-  }
-
-  async function onUploadImage(result) {
-    const pathToFile = result.path;
-    await FileReference.putFile(pathToFile);
-    setFilePath(result.path);
   }
 }
