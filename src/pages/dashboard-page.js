@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {LogoutButton} from '../components/logout-button';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
@@ -9,12 +9,14 @@ import { MainFeedPage } from '../components/main-feed-page';
 const Tab = createMaterialBottomTabNavigator();
 
 export const DashboardPage = ({navigation}) => {
+  const [title, setTitle] = useState("Feed");
   useEffect(() => {
     navigation.setOptions({
-      title: 'Feed',
+      title,
       headerRight: () => <LogoutButton />,
     });
-  }, []);
+  }, [title]);
+
   return (
     <Tab.Navigator
       labeled={false}
@@ -31,6 +33,7 @@ export const DashboardPage = ({navigation}) => {
         }}
         listeners={({navigation}) => ({
           tabPress: event => {
+            // set title here
             event.preventDefault();
             navigation.navigate('Feed');
           },
@@ -65,6 +68,7 @@ export const DashboardPage = ({navigation}) => {
         }}
         listeners={({navigation}) => ({
           tabPress: event => {
+            setTitle("Profile");
             event.preventDefault();
             navigation.navigate('Profile');
           },
