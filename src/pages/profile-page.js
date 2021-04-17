@@ -7,6 +7,7 @@ import Auth from '@react-native-firebase/auth';
 import ImagePicker from 'react-native-image-crop-picker';
 import storage from '@react-native-firebase/storage';
 import {LogoutButton} from '../components/logout-button';
+import { useRef } from 'react';
 
 
 const imageData = [
@@ -28,7 +29,8 @@ const ProfilePage = ({navigation}) => {
     const [user, setUser] = useState(null);
   _keyExtractor = (item, index) => item.id.toString();
   const [filePath, setFilePath] = useState(null);
-  const FileReference = storage().ref(`${Auth().currentUser.uid}-profile.png`);
+  const fileName = useRef(`${Auth().currentUser.uid}-profile.png`)
+  const FileReference = storage().ref(fileName.current);
   useEffect(() => {
     navigation.setOptions({
       title: 'Profile',
@@ -108,17 +110,21 @@ const ProfilePage = ({navigation}) => {
   }
 
   async function onUploadImage(result) {
-    const pathToFile = result.path;
-    await FileReference.putFile(pathToFile);
+    try {
+      const pathToFile = result.path;
+      await FileReference.putFile(pathToFile);
 
-    // const url = await storage().ref( file name here ).getDownloadURL();
+      const url = await storage().ref(fileName.current).getDownloadURL();
 
-    // const result = await Firestore().collection('users').add({
-    //   userId: Auth().currentUser.uid,
-    //   avatarUrl: url,
-    // });
+      await Firestore().collection('users').add({
+        userId: Auth().currentUser.uid,
+        avatarUrl: url,
+      });
 
-    setFilePath(result.path);
+      setFilePath(result.path);
+    } catch (e) {
+      console.log(e);
+    }
   }
 };
 
