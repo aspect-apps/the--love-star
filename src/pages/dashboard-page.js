@@ -2,14 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {LogoutButton} from '../components/logout-button';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {Profile} from '../components/profile';
-import {Upload} from '../components/upload';
-import { MainFeedPage } from '../components/main-feed-page';
+import Profile from '../pages/profile-page';
+import Upload from '../pages/upload-page';
+import {MainFeedPage} from '../components/main-feed-page';
 
 const Tab = createMaterialBottomTabNavigator();
 
 export const DashboardPage = ({navigation}) => {
-  const [title, setTitle] = useState("Feed");
+  const [title, setTitle] = useState('Feed');
   useEffect(() => {
     navigation.setOptions({
       title,
@@ -33,7 +33,7 @@ export const DashboardPage = ({navigation}) => {
         }}
         listeners={({navigation}) => ({
           tabPress: event => {
-            // set title here
+            setTitle('Feed');
             event.preventDefault();
             navigation.navigate('Feed');
           },
@@ -51,6 +51,7 @@ export const DashboardPage = ({navigation}) => {
         }}
         listeners={({navigation}) => ({
           tabPress: event => {
+            setTitle('Add');
             event.preventDefault();
             navigation.navigate('Upload');
           },
@@ -68,7 +69,7 @@ export const DashboardPage = ({navigation}) => {
         }}
         listeners={({navigation}) => ({
           tabPress: event => {
-            setTitle("Profile");
+            setTitle('Profile');
             event.preventDefault();
             navigation.navigate('Profile');
           },

@@ -29,10 +29,14 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 50,
     paddingHorizontal: 46,
-    paddingVertical: 10
+    paddingVertical: 10,
   },
   uploadImage: {
     height: 157,
     width: 190,
   },
+  inputStyle: {
+    
+    fontSize: 18,
+  }
 });

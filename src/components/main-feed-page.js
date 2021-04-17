@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {Image, Text, View, FlatList} from 'react-native';
-import {styles} from './styles/feed-style';
+import {styles} from './styles/main-feed-style';
 import {useNavigation} from '@react-navigation/native';
 import Firestore from '@react-native-firebase/firestore';
 
@@ -11,7 +11,7 @@ export function MainFeedPage() {
 
   console.log(posts);
 
-  return (  
+  return (
     <View>
       <FlatList
         numColumns={1}
@@ -25,17 +25,17 @@ export function MainFeedPage() {
               source={{uri: item.imageUrl}}
               style={styles.cardImage}
             />
-            {/* <View style={styles.cardHeader}>
-              <Text style={styles.cardTitle}>{item.postTitle}</Text>
-              <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+            <View style={styles.cardHeader}>
+              <Text style={styles.cardTitle}>{item.addTitle}</Text>
+              {/* <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
                 <Image
                   source={{uri: item.avatarURI}}
                   style={styles.profileIcon}
                 />
-              </TouchableOpacity>
-            </View> */}
+              </TouchableOpacity> */}
+            </View>
             <View style={styles.cardContent}>
-              <Text>{item.caption}</Text>
+              <Text>{item.inputCaption}</Text>
             </View>
           </View>
         )}
@@ -45,9 +45,9 @@ export function MainFeedPage() {
 
   function onSyncOrders() {
     const unsubscribe = Firestore()
-      .collection("posts")
+      .collection('posts')
       .onSnapshot({
-        next: (collection) => {
+        next: collection => {
           const collectionDocuments = collection.docs.map(item => item.data());
           setPosts(collectionDocuments);
         },

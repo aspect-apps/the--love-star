@@ -21,7 +21,7 @@ const LoginPage = ({navigation}) => {
       <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
         <SafeAreaView style={styles.containerStyle}>
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>Love Star</Text>
+            <Text style={styles.title}>Be A Star</Text>
             <Image source={elephantImage} style={styles.elephantImage} />
           </View>
           <View style={styles.buttonAreaContainer}>
