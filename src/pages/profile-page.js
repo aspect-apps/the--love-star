@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {View, Text, TouchableOpacity, FlatList, Image,  ActionSheetIOS} from 'react-native';
+import {View, Text, TouchableOpacity, FlatList, Image,  ActionSheetIOS, ActivityIndicator} from 'react-native';
 import {styles} from '../components/styles/profile-style';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {Platform} from 'react-native';
@@ -8,7 +8,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import storage from '@react-native-firebase/storage';
 import {LogoutButton} from '../components/logout-button';
 import { useRef } from 'react';
-
+import Firestore from '@react-native-firebase/firestore';
 
 const imageData = [
   {
@@ -26,6 +26,7 @@ const imageData = [
 ];
 
 const ProfilePage = ({navigation}) => {
+  const [isLoading, setIsLoading] = useState(false);
     const [user, setUser] = useState(null);
   _keyExtractor = (item, index) => item.id.toString();
   const [filePath, setFilePath] = useState(null);
@@ -37,6 +38,7 @@ const ProfilePage = ({navigation}) => {
       headerRight: () => <LogoutButton />,
     });
   }, []);
+  useEffect(onSyncProifile, []);
 
   return (
     <View style={styles.backgroundProfile}>
@@ -53,11 +55,12 @@ const ProfilePage = ({navigation}) => {
               </View>
 
               <View style={styles.profileContainer}>
-        <Text style={styles.profileText}>Profile Name</Text>
-        <TouchableOpacity onPress={onShowActionSheet}>
-          <Image source={{uri: filePath}} style={styles.profileIcon} />
-        </TouchableOpacity>
-      </View>
+                <Text style={styles.profileText}>Profile Name</Text>
+                <TouchableOpacity onPress={onShowActionSheet}>
+                  <Image source={{uri: filePath}} style={styles.profileIcon} />
+                  {isLoading && <ActivityIndicator size="large" />}
+                </TouchableOpacity>
+              </View>
             </>
           }
           renderItem={({item}) => (
@@ -88,6 +91,23 @@ const ProfilePage = ({navigation}) => {
     }
   }
 
+  function onSyncProifile() {
+    const unsubscribe = Firestore()
+      .collection('users')
+      .where('userId', '==', Auth().currentUser.uid)
+      .onSnapshot({
+        next: collection => {
+          const userDocument = collection.docs.map(item => item.data())[0];
+
+          if(userDocument) {
+            setFilePath(userDocument.avatarUrl);
+          }
+        },
+      });
+
+    return unsubscribe;
+  }
+
   async function takePicture() {
     const result = await ImagePicker.openCamera({
       width: 300,
@@ -110,21 +130,19 @@ const ProfilePage = ({navigation}) => {
   }
 
   async function onUploadImage(result) {
-    try {
-      const pathToFile = result.path;
-      await FileReference.putFile(pathToFile);
+    setIsLoading(true);
 
-      const url = await storage().ref(fileName.current).getDownloadURL();
+    const pathToFile = result.path;
+    await FileReference.putFile(pathToFile);
 
-      await Firestore().collection('users').add({
-        userId: Auth().currentUser.uid,
-        avatarUrl: url,
-      });
+    const url = await storage().ref(fileName.current).getDownloadURL();
 
-      setFilePath(result.path);
-    } catch (e) {
-      console.log(e);
-    }
+    await Firestore().collection('users').add({
+      userId: Auth().currentUser.uid,
+      avatarUrl: url,
+    });
+
+    setIsLoading(false);
   }
 };
 
