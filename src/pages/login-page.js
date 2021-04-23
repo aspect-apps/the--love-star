@@ -12,6 +12,8 @@ import styles from './styles/login-page-style';
 import {PrimaryButton} from '../components/primary-button';
 import {GoogleSignin, statusCodes} from '@react-native-community/google-signin';
 import Auth from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
+import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
 
 const LoginPage = ({navigation}) => {
   const backgroundImage = require('../img/test.jpg');
@@ -30,6 +32,12 @@ const LoginPage = ({navigation}) => {
               onPress={onGoogleButtonPress}
               iconName="google"
               iconColor="rgb(66, 133, 244)"
+            />
+            <PrimaryButton
+              label="Continue with Facebook"
+              onPress={onFacebookButtonPress}
+              iconName="facebook-square"
+              iconColor="rgb(66, 103, 178)"
             />
           </View>
         </SafeAreaView>
@@ -51,12 +59,41 @@ const LoginPage = ({navigation}) => {
       if (e.code !== statusCodes.SIGN_IN_CANCELLED) {
         Alert.alert(
           'Google Login Failure',
-          'Google authentication has falied. If this persists, contact us',
+          'Google authentication has failed. If this persists, contact us',
           [{text: 'Close', style: 'destructive'}],
         );
       }
     }
   }
+
+  async function onFacebookButtonPress() {
+    try {
+    // Attempt login with permissions
+    const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+  
+    if (result.isCancelled) {
+      throw 'User cancelled the login process';
+    }
+  
+    // Once signed in, get the users AccesToken
+    const data = await AccessToken.getCurrentAccessToken();
+  
+    if (!data) {
+      throw 'Something went wrong obtaining access token';
+    }
+  
+    // Create a Firebase credential with the AccessToken
+    const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
+  
+    // Sign-in the user with the credential
+    await auth().signInWithCredential(facebookCredential);
+    
+    navigation.navigate('OnboardingOne');
+  } catch(error) {
+    console.log({error});
+  }
+  }
 };
+
 
 export default LoginPage;

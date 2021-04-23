@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     justifyContent: 'center',
+    paddingVertical: 60
   },
   elephantImage: {
     paddingVertical: 15,

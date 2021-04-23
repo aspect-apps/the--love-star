@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {View, Text, TouchableOpacity, FlatList, Image,  ActionSheetIOS, ActivityIndicator} from 'react-native';
+import {View, Text, TouchableOpacity, FlatList, Image, ActionSheetIOS, TextInput, ActivityIndicator} from 'react-native';
 import {styles} from '../components/styles/profile-style';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {Platform} from 'react-native';
@@ -19,7 +19,7 @@ const imageData = [
   },
   {
     image: 'https://picsum.photos/200',
-  },
+  }, 
   {
     image: 'https://picsum.photos/200',
   },
@@ -27,7 +27,8 @@ const imageData = [
 
 const ProfilePage = ({navigation}) => {
   const [isLoading, setIsLoading] = useState(false);
-    const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
+  const [profileName, setProfileName] = useState('');
   _keyExtractor = (item, index) => item.id.toString();
   const [filePath, setFilePath] = useState(null);
   const fileName = useRef(`${Auth().currentUser.uid}-profile.png`)
@@ -38,7 +39,7 @@ const ProfilePage = ({navigation}) => {
       headerRight: () => <LogoutButton />,
     });
   }, []);
-  useEffect(onSyncProifile, []);
+  useEffect(onSyncProfile, []);
 
   return (
     <View style={styles.backgroundProfile}>
@@ -55,7 +56,14 @@ const ProfilePage = ({navigation}) => {
               </View>
 
               <View style={styles.profileContainer}>
-                <Text style={styles.profileText}>Profile Name</Text>
+              <TextInput 
+                autoCapitalize="none"
+                autoCorrect={false}
+                placeholder="Enter Profile Name"
+                value={profileName}
+                onChangeText={setProfileName}
+                style={styles.profileText} 
+              />
                 <TouchableOpacity onPress={onShowActionSheet}>
                   <Image source={{uri: filePath}} style={styles.profileIcon} />
                   {isLoading && <ActivityIndicator size="large" />}
@@ -91,7 +99,7 @@ const ProfilePage = ({navigation}) => {
     }
   }
 
-  function onSyncProifile() {
+  function onSyncProfile() {
     const unsubscribe = Firestore()
       .collection('users')
       .where('userId', '==', Auth().currentUser.uid)
@@ -140,6 +148,7 @@ const ProfilePage = ({navigation}) => {
     await Firestore().collection('users').add({
       userId: Auth().currentUser.uid,
       avatarUrl: url,
+      profileName,
     });
 
     setIsLoading(false);

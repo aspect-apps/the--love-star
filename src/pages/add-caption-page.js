@@ -14,8 +14,8 @@ const AddCaptionPage = ({navigation, route}) => {
   const FileReference = storage().ref(fileName.current);
   console.log({ route });
   const imageUrl = route.params.image;
-  const [addTitle, setAddTitle] = useState(null);
-  const [inputCaption, setInputCaption] = useState(null);
+  const [addTitle, setAddTitle] = useState('');
+  const [inputCaption, setInputCaption] = useState('');
   return (
     <View style={styles.backgroundUpload}>
       <View style={styles.uploadContainer}>

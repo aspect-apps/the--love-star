@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Image, Text, View, FlatList} from 'react-native';
+import {Image, Text, View, FlatList, TouchableOpacity} from 'react-native';
 import {styles} from './styles/main-feed-style';
 import {useNavigation} from '@react-navigation/native';
 import Firestore from '@react-native-firebase/firestore';
+import {ProfileImage} from './profile-image';
 
 export function MainFeedPage() {
   const navigation = useNavigation();
@@ -27,12 +28,9 @@ export function MainFeedPage() {
             />
             <View style={styles.cardHeader}>
               <Text style={styles.cardTitle}>{item.addTitle}</Text>
-              {/* <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                <Image
-                  source={{uri: item.avatarURI}}
-                  style={styles.profileIcon}
-                />
-              </TouchableOpacity> */}
+              <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                <ProfileImage />
+              </TouchableOpacity>
             </View>
             <View style={styles.cardContent}>
               <Text>{item.inputCaption}</Text>
