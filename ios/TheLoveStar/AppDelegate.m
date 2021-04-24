@@ -58,7 +58,7 @@ static void InitializeFlipper(UIApplication *application) {
 
   [[FBSDKApplicationDelegate sharedInstance] application:application
                           didFinishLaunchingWithOptions:launchOptions];
-
+  
   return YES;
 }
 

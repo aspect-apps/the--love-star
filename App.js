@@ -13,12 +13,14 @@ import NewProfilePage from './src/pages/new-profile-page';
 import AddCaptionPage from './src/pages/add-caption-page';
 import UploadPage from './src/pages/upload-page';
 import {DashboardPage} from './src/pages/dashboard-page';
+import SplashScreen from 'react-native-splash-screen';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   const user = Auth().currentUser;
   const isLoggedIn = user !== null;
+  SplashScreen.hide();
 
   return (
     <NavigationContainer>

@@ -10,20 +10,20 @@ import {LogoutButton} from '../components/logout-button';
 import { useRef } from 'react';
 import Firestore from '@react-native-firebase/firestore';
 
-const imageData = [
-  {
-    image: 'https://picsum.photos/200',
-  },
-  {
-    image: 'https://picsum.photos/200',
-  },
-  {
-    image: 'https://picsum.photos/200',
-  }, 
-  {
-    image: 'https://picsum.photos/200',
-  },
-];
+// const imageData = [
+//   {
+//     image: 'https://picsum.photos/200',
+//   },
+//   {
+//     image: 'https://picsum.photos/200',
+//   },
+//   {
+//     image: 'https://picsum.photos/200',
+//   }, 
+//   {
+//     image: 'https://picsum.photos/200',
+//   },
+// ];
 
 const ProfilePage = ({navigation}) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -43,11 +43,11 @@ const ProfilePage = ({navigation}) => {
 
   return (
     <View style={styles.backgroundProfile}>
-      <View style={styles.containerGallery}>
+      <View style={styles.containerGallery}> 
         <FlatList
           numColumns={3}
           horizontal={false}
-          data={imageData}
+          // data={imageData}
           ListHeaderComponent={
             <>
               <View style={styles.followerTextContainer}>

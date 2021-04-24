@@ -31,4 +31,5 @@ const SplashPage = ({navigation}) => {
   );
 };
 
-export default SplashPage;
+export default SplashPage; 
+ 
