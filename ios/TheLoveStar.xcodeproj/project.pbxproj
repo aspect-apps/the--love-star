@@ -34,7 +34,6 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* TheLoveStarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheLoveStarTests.m; sourceTree = "<group>"; };
 		0DC66E6FE868B2E5AEE46E5A /* Pods-TheLoveStar-TheLoveStarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheLoveStar-TheLoveStarTests.debug.xcconfig"; path = "Target Support Files/Pods-TheLoveStar-TheLoveStarTests/Pods-TheLoveStar-TheLoveStarTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1008AA5326320773008BE514 /* file.swift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = file.swift; path = ../../file.swift; sourceTree = "<group>"; };
 		10339B3326324FD100DE8917 /* TheLoveStar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheLoveStar-Bridging-Header.h"; sourceTree = "<group>"; };
 		10339B3426324FD100DE8917 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* TheLoveStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheLoveStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,7 +126,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				1008AA5326320773008BE514 /* file.swift */,
 				CEB73A2A2618C864009A8C28 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* TheLoveStar */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -526,7 +524,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = TheLoveStar;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cedricsmith/Desktop/the--love-star/ios/TheLoveStar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TheLoveStar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -552,7 +550,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = TheLoveStar;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cedricsmith/Desktop/the--love-star/ios/TheLoveStar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TheLoveStar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

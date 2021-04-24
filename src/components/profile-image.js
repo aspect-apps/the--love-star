@@ -1,33 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { View, Image } from 'react-native';
+import React from 'react';
+import { View, Image, Text } from 'react-native';
 import {styles} from './styles/profile-style';
-import Firestore from '@react-native-firebase/firestore';
 import Auth from '@react-native-firebase/auth';
 
-export function ProfileImage() {
-  const [filePath, setFilePath] = useState(null);
-  useEffect(onSyncProfile, []);
+export function ProfileImage({ size = 200 }) {
+  const profileName = Auth().currentUser.displayName;
+  const photoURL = Auth().currentUser.photoURL;
 
   return (
     <View>
-        <Image source={{uri: filePath}} style={styles.profileIcon} />
+        <Image source={{uri: photoURL}} style={[styles.profileIcon, { width: size, height: size, borderRadius: size * 2 }]} />
     </View>
   )
-
-  function onSyncProfile() {
-    const unsubscribe = Firestore()
-      .collection('users')
-      .where('userId', '==', Auth().currentUser.uid)
-      .onSnapshot({
-        next: collection => {
-          const userDocument = collection.docs.map(item => item.data())[0];
-
-          if(userDocument) {
-            setFilePath(userDocument.avatarUrl);
-          }
-        },
-      });
-
-    return unsubscribe;
-  }
-  }
+}

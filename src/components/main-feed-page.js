@@ -8,9 +8,7 @@ import {ProfileImage} from './profile-image';
 export function MainFeedPage() {
   const navigation = useNavigation();
   const [posts, setPosts] = useState([]);
-  useEffect(onSyncOrders, []);
-
-  console.log(posts);
+  useEffect(onSyncPosts, []);
 
   return (
     <View>
@@ -29,7 +27,7 @@ export function MainFeedPage() {
             <View style={styles.cardHeader}>
               <Text style={styles.cardTitle}>{item.addTitle}</Text>
               <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                <ProfileImage />
+                <ProfileImage size={40} />
               </TouchableOpacity>
             </View>
             <View style={styles.cardContent}>
@@ -41,7 +39,7 @@ export function MainFeedPage() {
     </View>
   );
 
-  function onSyncOrders() {
+  function onSyncPosts() {
     const unsubscribe = Firestore()
       .collection('posts')
       .onSnapshot({

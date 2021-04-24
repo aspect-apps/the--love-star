@@ -9,7 +9,6 @@ import OnboardingOnePage from './src/pages/onboarding-one-page';
 import OnboardingTwoPage from './src/pages/onboarding-two-page';
 import OnboardingThreePage from './src/pages/onboarding-three-page';
 import OnboardingFourPage from './src/pages/onboarding-four-page';
-import NewProfilePage from './src/pages/new-profile-page';
 import AddCaptionPage from './src/pages/add-caption-page';
 import UploadPage from './src/pages/upload-page';
 import {DashboardPage} from './src/pages/dashboard-page';
@@ -58,11 +57,6 @@ export default function App() {
         <Stack.Screen
           name="OnboardingFour"
           component={OnboardingFourPage}
-          options={{headerLeft: null}}
-        />
-        <Stack.Screen
-          name="NewProfile"
-          component={NewProfilePage}
           options={{headerLeft: null}}
         />
         <Stack.Screen name="Upload" component={UploadPage} />

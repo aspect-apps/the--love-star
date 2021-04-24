@@ -65,8 +65,6 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   profileIcon: {
-    width: 200,
-    height: 200,
     borderRadius: 475,
     backgroundColor: 'white',
     marginVertical: 32,

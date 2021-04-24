@@ -54,17 +54,21 @@ const AddCaptionPage = ({navigation, route}) => {
   );
 
   async function onUploadImage(path) {
-    await FileReference.putFile(path);
-    const url = await storage().ref(fileName.current).getDownloadURL();
+    try {
+      await FileReference.putFile(path);
+      const url = await storage().ref(fileName.current).getDownloadURL();
 
-    const result = await Firestore().collection('posts').add({
-      id: uuid.v4(),
-      imageUrl: url,
-      addTitle,
-      inputCaption,
-    });
-    console.log(result);
-    navigation.dispatch(popAction);
+      await Firestore().collection('posts').add({
+        id: uuid.v4(),
+        imageUrl: url,
+        addTitle,
+        inputCaption,
+        userId: Auth().currentUser.uid
+      });
+      navigation.dispatch(popAction);
+    } catch(e) {
+      console.log(e);
+    }
   }
 }; 
 export default AddCaptionPage;
