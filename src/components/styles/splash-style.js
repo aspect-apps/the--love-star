@@ -15,9 +15,8 @@ export const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 80,
-    fontFamily: 'Baskerville-Italic',
-    fontWeight: 'bold',
-    color: 'silver',
+    fontFamily: 'Copperplate',
+    color: 'black',
     textAlign: 'center',
     letterSpacing: 0.0,
     paddingVertical: 65,
@@ -53,7 +52,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     position: 'absolute',
     top: 50,
-    left: 160,
+    left: 170,
   },
   buttonContainer: {
     backgroundColor: 'rgb(245, 221, 221)',

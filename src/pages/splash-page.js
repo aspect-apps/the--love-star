@@ -14,8 +14,7 @@ const SplashPage = ({navigation}) => {
         />
         <Text style={styles.titleText}>Be A Star</Text>
         <Text style={styles.subtitleText}>
-          Explore the world by creating beautiful posts and chatting with
-          others.
+          Explore the world and create beautiful posts.
         </Text>
         <View>
           <Entypo name="star" style={styles.starIcon} />

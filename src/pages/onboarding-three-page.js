@@ -21,7 +21,7 @@ const OnboardingThreePage = ({navigation}) => {
         />
         <Text style={styles.mainText}>Allow Notifications</Text>
         <Text style={styles.subText}>
-          We will let you know when you get new likes and followers.
+          We will let you know when you get new likes.
         </Text>
 
         <TouchableOpacity onPress={onAllowNotifcations}>

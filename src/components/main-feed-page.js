@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import Firestore from '@react-native-firebase/firestore';
 import {ProfileImage} from './profile-image';
 
+
 export function MainFeedPage() {
   const navigation = useNavigation();
   const [posts, setPosts] = useState([]);
@@ -26,7 +27,7 @@ export function MainFeedPage() {
             />
             <View style={styles.cardHeader}>
               <Text style={styles.cardTitle}>{item.addTitle}</Text>
-              <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+              <TouchableOpacity onPress={() => navigation.navigate('ForeignUserProfile', { postId: item.id, uri: item.photoURL, uid: item.userId, displayName: item.displayName })}> 
                 <ProfileImage size={40} />
               </TouchableOpacity>
             </View>
@@ -38,7 +39,7 @@ export function MainFeedPage() {
       />
     </View>
   );
-
+  
   function onSyncPosts() {
     const unsubscribe = Firestore()
       .collection('posts')
@@ -48,7 +49,6 @@ export function MainFeedPage() {
           setPosts(collectionDocuments);
         },
       });
-
     return unsubscribe;
   }
 }

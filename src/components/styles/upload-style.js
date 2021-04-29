@@ -38,8 +38,7 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     letterSpacing: 0.0,
     alignSelf: 'flex-start',
-    fontFamily: 'Baskerville-Italic',
-    fontWeight: 'bold',
+    fontFamily: 'Copperplate',
   },
   uploadBoxContainer: {
     height: 180,
@@ -53,10 +52,10 @@ export const styles = StyleSheet.create({
     letterSpacing: 0.0,
     textAlign: 'center',
     marginVertical: 70,
-    fontFamily: 'Baskerville-Italic',
-    fontWeight: 'bold',
+    fontFamily: 'Copperplate',
   },
   uploadImage: {
+    marginVertical: 65,
     height: 157,
     width: 190,
     borderRadius: 25,

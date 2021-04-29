@@ -15,21 +15,22 @@ const styles = StyleSheet.create({
   elephantImage: {
     paddingVertical: 15,
     marginTop: 2,
+    alignSelf: 'center'
   },
   titleContainer: {
     alignSelf: 'center',
   },
   title: {
     textAlign: 'center',
-    color: 'silver',
-    fontSize: 75,
+    color: 'black',
+    fontSize: 68,
     fontWeight: '600',
     marginBottom: 20,
-    fontFamily: 'Baskerville-Italic',
+    fontFamily: 'Copperplate',
     shadowColor: '#000',
     shadowOffset: {
-      width: 0,
-      height: 4,
+      width: 10,
+      height: 10,
     },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,

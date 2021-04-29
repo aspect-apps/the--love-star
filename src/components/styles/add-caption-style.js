@@ -32,11 +32,14 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   uploadImage: {
-    height: 157,
-    width: 190,
+    height: 259,
+    width: 300,
+    marginVertical: 100
   },
   inputStyle: {
-    
-    fontSize: 18,
+    marginBottom: 20,
+    marginVertical: 5,
+    fontSize: 19,
+    alignSelf: 'center'
   }
 });

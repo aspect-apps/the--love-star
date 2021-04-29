@@ -13,6 +13,7 @@ export const DashboardPage = ({navigation}) => {
   useEffect(() => {
     navigation.setOptions({
       title,
+      headerLeft: null,
       headerRight: () => <LogoutButton />,
     });
   }, [title]);

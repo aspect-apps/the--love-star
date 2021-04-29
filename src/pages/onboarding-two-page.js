@@ -22,7 +22,7 @@ const OnboardingTwoPage = ({navigation}) => {
 
         <Text style={styles.subText}>News Feed</Text>
         <Text style={styles.subSubText}>
-          See pictures and videos from users you are following and if you like
+          See pictures from users you are following and if you like
           them, give them some love.
         </Text>
 
@@ -38,24 +38,8 @@ const OnboardingTwoPage = ({navigation}) => {
 
         <Text style={styles.subText}>Post</Text>
         <Text style={styles.subSubText}>
-          Take photos or videos to see how they rate. The more likes, the higher
+          Take photos to see how they rate. The more likes, the higher
           your heart rating grows.
-        </Text>
-
-        <View style={styles.dividerLine}></View>
-
-        <View style={styles.iconContainer}>
-          <FontAwesome5
-            name="rocketchat"
-            size={46}
-            color="rgb(221, 244, 244)"
-          />
-        </View>
-
-        <Text style={styles.subText}>Chat Rooms</Text>
-        <Text style={styles.subSubText}>
-          See a list of chat rooms you can join with users that may have similar
-          interests.
         </Text>
 
         <View style={styles.dividerLine}></View>

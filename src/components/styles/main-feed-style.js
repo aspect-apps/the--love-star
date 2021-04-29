@@ -20,6 +20,8 @@ export const styles = StyleSheet.create({
   },
   cardTitle: {
     color: 'black',
+    fontFamily: "Copperplate",
+    fontSize: 25
   },
   cardAvatar: {
     marginRight: 16,

@@ -13,25 +13,27 @@ export const styles = StyleSheet.create({
   mainText: {
     fontSize: 30,
     letterSpacing: 0.0,
-    top: 87,
     textAlign: 'center',
     fontWeight: 'bold',
+    marginTop: 20
   },
   subText: {
-    fontSize: 18,
+    fontSize: 21,
     letterSpacing: 0.0,
     textAlign: 'center',
     paddingHorizontal: 51,
     paddingVertical: 123,
+    marginTop: 20
   },
   buttonContainer: {
     backgroundColor: 'rgb(221, 244, 244)',
     borderRadius: 25,
-    paddingVertical: 15,
+    paddingVertical: 25,
     paddingHorizontal: 71,
     marginVertical: 82,
     marginHorizontal: 36,
     alignItems: 'center',
+    marginBottom: 18
   },
   buttonContainerText: {
     fontSize: 20,
@@ -42,6 +44,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     letterSpacing: 0.0,
-    marginBottom: 25,
+    marginBottom: 50,
+
   },
 });

@@ -63,7 +63,9 @@ const AddCaptionPage = ({navigation, route}) => {
         imageUrl: url,
         addTitle,
         inputCaption,
-        userId: Auth().currentUser.uid
+        photoUrl,
+        displayName,
+        userId: Auth().currentUser.uid,
       });
       navigation.dispatch(popAction);
     } catch(e) {

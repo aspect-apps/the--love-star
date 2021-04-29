@@ -16,7 +16,7 @@ const OnboardingFourPage = ({navigation}) => {
         <AntDesign name="checkcircle" size={74.4} color="rgb(221, 244, 244)" />
         <Text style={styles.mainText}>Your account has now been created!</Text>
         <Text style={styles.subText}>
-          Congratulations! Press next to see your profile and upload a picture!
+          Congratulations! Press next to see your profile and upload an image!
         </Text>
         <Image
           source={require('../img/elephant.png')}
