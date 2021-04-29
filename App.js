@@ -25,7 +25,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={isLoggedIn ? 'Profile' : 'Splash'}
+        initialRouteName={isLoggedIn ? 'DashboardScreen' : 'Splash'}
         screenOptions={{
           title: 'Love Star',
           headerTintColor: 'black',

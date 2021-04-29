@@ -28,7 +28,7 @@ export function MainFeedPage() {
             <View style={styles.cardHeader}>
               <Text style={styles.cardTitle}>{item.addTitle}</Text>
               <TouchableOpacity onPress={() => navigation.navigate('ForeignUserProfile', { postId: item.id, uri: item.photoURL, uid: item.userId, displayName: item.displayName })}> 
-                <ProfileImage size={40} />
+                <ProfileImage size={40} url={item.photoUrl} />
               </TouchableOpacity>
             </View>
             <View style={styles.cardContent}>

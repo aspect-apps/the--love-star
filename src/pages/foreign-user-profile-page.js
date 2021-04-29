@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { View, FlatList, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, FlatList, Image, Text } from 'react-native';
 import { styles } from './styles/foreign-user-profile-page-style';
 import { ProfileImage } from '../components/profile-image';
 import { LogoutButton } from '../components/logout-button';
@@ -7,9 +7,11 @@ import Firestore from '@react-native-firebase/firestore';
 
 
 const ForeignUserProfilePage = ({ navigation, route }) => {
-    console.log({ route });
     const [posts, setPosts] = useState([]);
     const userId = route.params.uid
+    const photoUrl = route.params.photoUrl;
+    const displayName = route.params.displayName;
+
     useEffect(() => {
       navigation.setOptions({
         title: 'Profile',
@@ -26,13 +28,10 @@ const ForeignUserProfilePage = ({ navigation, route }) => {
             keyExtractor={(_, index) => index}
             data={posts}
             ListHeaderComponent={
-              <>
-           
-  
-                <View style={styles.profileContainer}>
-                    <ProfileImage />
-                </View>
-              </>
+              <View style={styles.profileContainer}>
+                  <ProfileImage url={photoUrl} />
+                  <Text>{displayName}</Text>
+              </View>
             }
             renderItem={({item}) => (
               <View style={styles.containerImage}>
@@ -56,11 +55,7 @@ const ForeignUserProfilePage = ({ navigation, route }) => {
         });
   
       return unsubscribe;
-    }
-  
-
-  
-  
+    }  
   }
   
   export default ForeignUserProfilePage;

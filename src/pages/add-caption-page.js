@@ -11,11 +11,14 @@ import { StackActions } from '@react-navigation/routers';
 const AddCaptionPage = ({navigation, route}) => {
   const popAction = StackActions.pop(1);
   const fileName = useRef(`${Auth().currentUser.uid}-${uuid.v4()}.png`);
+  const userPhotoURL = Auth().currentUser.photoURL;
+  const userDisplayName = Auth().currentUser.displayName;
   const FileReference = storage().ref(fileName.current);
-  console.log({ route });
   const imageUrl = route.params.image;
+
   const [addTitle, setAddTitle] = useState('');
   const [inputCaption, setInputCaption] = useState('');
+
   return (
     <View style={styles.backgroundUpload}>
       <View style={styles.uploadContainer}>
@@ -63,8 +66,8 @@ const AddCaptionPage = ({navigation, route}) => {
         imageUrl: url,
         addTitle,
         inputCaption,
-        photoUrl,
-        displayName,
+        photoUrl: userPhotoURL,
+        displayName: userDisplayName,
         userId: Auth().currentUser.uid,
       });
       navigation.dispatch(popAction);

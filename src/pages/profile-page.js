@@ -54,7 +54,7 @@ const ProfilePage = ({navigation}) => {
                 style={styles.profileText} 
               />
                 <TouchableOpacity onPress={onShowActionSheet}>
-                  <ProfileImage />
+                  <ProfileImage url={photoURL} />
                   {isLoading && <ActivityIndicator size="large" />}
                 </TouchableOpacity>
               </View>

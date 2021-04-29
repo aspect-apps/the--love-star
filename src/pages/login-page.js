@@ -14,6 +14,7 @@ import {GoogleSignin, statusCodes} from '@react-native-community/google-signin';
 import Auth from '@react-native-firebase/auth';
 import auth from '@react-native-firebase/auth';
 import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginPage = ({navigation}) => {
   const backgroundImage = require('../img/test.jpg');
@@ -89,7 +90,7 @@ const LoginPage = ({navigation}) => {
       // Sign-in the user with the credential into Firebase (Auth() is Firebase)
       await Auth().signInWithCredential(googleCredential);
 
-      navigation.navigate('OnboardingOne');
+      navigateToNextPage();
     } catch (e) {
       if (e.code !== statusCodes.SIGN_IN_CANCELLED) {
         Alert.alert(
@@ -123,10 +124,23 @@ const LoginPage = ({navigation}) => {
     // Sign-in the user with the credential
     await auth().signInWithCredential(facebookCredential);
     
-    navigation.navigate('OnboardingOne');
+    navigateToNextPage();
   } catch(error) {
     console.log({error});
   }
+  }
+
+  function navigateToNextPage(){
+    AsyncStorage.getItem('@has-onboarded').then((value) => {
+      if(value === 'true') {
+        navigation.navigate('DashboardPage');
+      } else {
+        navigation.navigate('OnboardingOne');
+      }
+    }).catch((e) => {
+      console.log({ e });
+      navigation.navigate('OnboardingOne');
+    });
   }
 
 };

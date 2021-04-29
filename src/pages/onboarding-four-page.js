@@ -3,6 +3,7 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {styles} from '../components/styles/onboarding-four-style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {ScrollView} from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const OnboardingFourPage = ({navigation}) => {
   useEffect(() => {
@@ -10,6 +11,8 @@ const OnboardingFourPage = ({navigation}) => {
       title: 'Finished!',
     });
   }, []);
+  useEffect(onSaveHasOnboarded, []);
+
   return (
     <ScrollView style={styles.backgroundOnboarding}>
       <View style={styles.onboardingContainer}>
@@ -30,6 +33,10 @@ const OnboardingFourPage = ({navigation}) => {
       </View>
     </ScrollView>
   );
+
+  function onSaveHasOnboarded(){
+    AsyncStorage.setItem('@has-onboarded', 'true');
+  }
 };
 
 export default OnboardingFourPage;
