@@ -19,40 +19,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const LoginPage = ({navigation}) => {
   const backgroundImage = require('../img/test.jpg');
   const elephantImage = require('../img/elephant-background.png');
-
-  // _storeData = async () => {
-  //   try {
-  //     await AsyncStorage.setItem(
-  //       'Auth().currentUser.uid'
-  //     );
-  //   } catch (error) {
-  //     // Error saving data
-  //   }
-  // };
-
-  // _retrieveData = async () => {
-  //   try {
-  //     const value = await AsyncStorage.getItem('Auth().currentUser.uid');
-  //     if (value !== null) {
-  //       // We have data!!
-  //       navigation.navigate('MainFeedPage')
-  //       console.log(value);
-  //     }
-  //   } catch (error) {
-  //     navigation.navigate('OnboardingOne')
-  //     // Error retrieving data
-  //   }
-  // };
-
-  // auth().onAuthStateChanged( (user) => {
-  //   if (user) {
-  //   // User is signed in.
-  //   navigation.navigate('MainFeedPage');
-  //   } else {
-  //   // No user is signed in.
-  //   navigation.navigate('OnboardingOne');
-  //   }
-  //   });
   
   return (
     <ScrollView>

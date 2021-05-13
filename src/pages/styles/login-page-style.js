@@ -38,7 +38,9 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   buttonAreaContainer: {
-    top: 54,
+    flex: 1,
+    paddingVertical: 10,
+    justifyContent: 'center'
   },
 });
 

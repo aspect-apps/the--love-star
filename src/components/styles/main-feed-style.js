@@ -63,4 +63,19 @@ export const styles = StyleSheet.create({
     flex: 1,
     aspectRatio: 1 / 1,
   },
+  customRatingBarStyle: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    marginTop: 30
+  },
+  starImgStyle: {
+    width: 40,
+    height: 40,
+    resizeMode: 'cover'
+  },
+  textStyle: {
+    alignSelf: 'center',
+    fontSize: 23,
+    marginTop: 20,
+  }
 });
