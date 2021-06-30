@@ -1,24 +1,45 @@
 import React, { useEffect, useState } from 'react';
-import {View, Text, TouchableOpacity, FlatList, Image, ActionSheetIOS, TextInput, ActivityIndicator} from 'react-native';
-import {styles} from '../components/styles/profile-style';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  Image,
+  ActionSheetIOS,
+  TextInput,
+  ActivityIndicator,
+  Alert,
+} from 'react-native';
+import { styles } from '../components/styles/profile-style';
 import Entypo from 'react-native-vector-icons/Entypo';
-import {Platform} from 'react-native';
-import Auth from '@react-native-firebase/auth';
+import { Platform } from 'react-native';
+import Auth, { firebase } from '@react-native-firebase/auth';
 import ImagePicker from 'react-native-image-crop-picker';
 import storage from '@react-native-firebase/storage';
-import {LogoutButton} from '../components/logout-button';
+import { LogoutButton } from '../components/logout-button';
 import Firestore from '@react-native-firebase/firestore';
 import { useRef } from 'react';
 import { ProfileImage } from '../components/profile-image';
 
-const ProfilePage = ({navigation}) => {
+const ProfilePage = ({ route, navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const initialProfileName = Auth().currentUser.displayName;
   const [profileName, setProfileName] = useState(initialProfileName);
-  const fileName = useRef(`${Auth().currentUser.uid}-profile.png`)
+  const fileName = useRef(`${Auth().currentUser.uid}-profile.png`);
   const FileReference = storage().ref(fileName.current);
   const photoURL = Auth().currentUser.photoURL;
   const [posts, setPosts] = useState([]);
+  // const imageUrl = route.params.imageUrl;
+
+  function deletePressed() {
+    Alert.alert("Are you sure", "You will lose the data", [{ text: "Cancel", onPress: () => console.log("delete canceled") }, { text: "Okay", onPress: () => { deletePost(deleteComplete) } }])
+  }
+
+  function deleteComplete() {
+    navigation.navigate('Feed');
+  }
+
+
 
   useEffect(() => {
     navigation.setOptions({
@@ -26,12 +47,12 @@ const ProfilePage = ({navigation}) => {
       headerRight: () => <LogoutButton />,
     });
   }, []);
-  useEffect(onSaveProfileName, [profileName])
+  useEffect(onSaveProfileName, [profileName]);
   useEffect(onSyncPosts, []);
 
   return (
     <View style={styles.backgroundProfile}>
-      <View style={styles.containerGallery}> 
+      <View style={styles.containerGallery}>
         <FlatList
           numColumns={3}
           horizontal={false}
@@ -41,18 +62,20 @@ const ProfilePage = ({navigation}) => {
             <>
               <View style={styles.followerTextContainer}>
                 <Text style={styles.followersText}>108 Followers</Text>
-                <Entypo name="star" size={24} color="red" />
+                <TouchableOpacity onPress={() => navigation.navigate('PostReviewsPage')}>
+                  <Entypo name="star" size={24} color="red" />
+                </TouchableOpacity>
               </View>
 
               <View style={styles.profileContainer}>
-              <TextInput 
-                autoCapitalize="none"
-                autoCorrect={false}
-                placeholder="Enter Profile Name"
-                value={profileName}
-                onChangeText={setProfileName}
-                style={styles.profileText} 
-              />
+                <TextInput
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  placeholder="Enter Profile Name"
+                  value={profileName}
+                  onChangeText={setProfileName}
+                  style={styles.profileText}
+                />
                 <TouchableOpacity onPress={onShowActionSheet}>
                   <ProfileImage url={photoURL} />
                   {isLoading && <ActivityIndicator size="large" />}
@@ -60,9 +83,11 @@ const ProfilePage = ({navigation}) => {
               </View>
             </>
           }
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <View style={styles.containerImage}>
-              <Image style={styles.image} source={{uri: item.imageUrl}} />
+              <TouchableOpacity onPress={() => deletePressed()}>
+                <Image style={styles.image} source={{ uri: item.imageUrl }} />
+              </TouchableOpacity>
             </View>
           )}
         />
@@ -73,7 +98,7 @@ const ProfilePage = ({navigation}) => {
   function onSyncPosts() {
     const unsubscribe = Firestore()
       .collection('posts')
-      .where("userId", "==", Auth().currentUser.uid)
+      .where('userId', '==', Auth().currentUser.uid)
       .onSnapshot({
         next: collection => {
           const collectionDocuments = collection.docs.map(item => item.data());
@@ -84,7 +109,7 @@ const ProfilePage = ({navigation}) => {
     return unsubscribe;
   }
 
-  async function onSaveProfileName(){
+  async function onSaveProfileName() {
     await Auth().currentUser.updateProfile({
       displayName: profileName,
     });
@@ -134,7 +159,7 @@ const ProfilePage = ({navigation}) => {
 
     const pathToFile = result.path;
     await FileReference.putFile(pathToFile);
-    
+
     const url = await storage().ref(fileName.current).getDownloadURL();
 
     await Auth().currentUser.updateProfile({
@@ -143,6 +168,20 @@ const ProfilePage = ({navigation}) => {
 
     setIsLoading(false);
   }
+
+  async function deletePost(item, deleteComplete) {
+    console.log(item)
+
+    firebase.Firestore()
+      .collection('posts')
+      .where('userId', '==', Auth().currentUser.uid)
+      .doc(item.id)
+      .delete()
+      .then(() => deleteComplete())
+      .catch((error) => console.log(error));
+
+  }
+
 };
 
 export default ProfilePage;

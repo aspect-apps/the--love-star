@@ -34,7 +34,9 @@
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
     "react": "17.0.1",
-    "react-native": "0.64.0",
+    "react-native": "0.64.2",
+    "react-native-easy-rating": "^0.2.1",
+    "react-native-elements": "^3.4.2",
     "react-native-fbsdk-next": "^4.0.0",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-image-crop-picker": "^0.36.0",
@@ -42,6 +44,7 @@
     "react-native-permissions": "git+https://github.com/zoontek/react-native-permissions.git",
     "react-native-pins": "^2.0.0",
     "react-native-safe-area-context": "^3.2.0",
+    "react-native-screens": "^3.4.0",
     "react-native-splash-screen": "^3.2.0",
     "react-native-uuid": "^2.0.1",
     "react-native-vector-icons": "^8.1.0"
